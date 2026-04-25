@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo *)",
+      "Bash(gh api *)",
+      "Bash(python3 -c \"import json,sys; [print\\(x['path']\\) for x in json.load\\(sys.stdin\\)['tree'] if x['type']=='blob']\")",
+      "Bash(python3 -c \"import json,sys; [print\\(x['name'], x['type']\\) for x in json.load\\(sys.stdin\\)]\")",
+      "Bash(python3 -c \"import json,sys,base64; print\\(base64.b64decode\\(json.load\\(sys.stdin\\)['content']\\).decode\\(\\)\\)\")",
+      "WebFetch(domain:www.pythonweekly.com)",
+      "WebFetch(domain:www.programmerweekly.com)",
+      "WebFetch(domain:pythonweekly.beehiiv.com)",
+      "WebFetch(domain:programmerweekly.beehiiv.com)"
+    ]
+  }
+}
