@@ -158,7 +158,7 @@ mailjap/
    |---|---|
    | `mailjap/any` | 全購読メール共通 |
 
-   > `mailjap/done` は GAS が初回実行時に自動作成します。手動作成不要です。作成するのは `mailjap/any` だけです。
+   > `mailjap/any`・`mailjap/done` はどちらも GAS が初回実行時に自動作成します。手動作成不要です。
 
 #### フィルタを設定する
 
