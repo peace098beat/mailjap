@@ -94,24 +94,36 @@ mailjap/
 
    | ラベル名 | 用途 |
    |---|---|
-   | `mailjap/python-weekly` | Python Weekly 受信用 |
-   | `mailjap/programmer-weekly` | Programmer Weekly 受信用 |
+   | `mailjap/any` | 全購読メール共通 |
 
    > `mailjap/done` は GAS が自動で作成します。手動作成不要です。
 
 #### フィルタを設定する
 
+購読メールの送信元アドレスすべてに対して `mailjap/any` ラベルを付与します。
+
 1. Gmail 検索バー右端の **「フィルタと検索条件の作成」** をクリック
 
 2. **「From」** に購読メールの送信元アドレスを入力（例：`newsletter@pythonweekly.com`）
 
-3. **「フィルタを作成」** → **「ラベルを適用」** で対応するラベルを選択
+3. **「フィルタを作成」** → **「ラベルを適用」** で `mailjap/any` を選択
 
-4. 同様に各購読メールのフィルタを設定する
+4. 購読メールごとに同様のフィルタを追加する（ラベルは全て `mailjap/any` に統一）
 
 ---
 
-### Step 5 — clasp をインストールして認証する
+### Step 5 — Google Apps Script API を有効にする
+
+GitHub Actions から GAS にデプロイするために必要です。
+
+1. **Apps Script ユーザー設定** にアクセス
+   - https://script.google.com/home/usersettings
+
+2. **「Google Apps Script API」** のトグルを **オン** にする
+
+---
+
+### Step 6 — clasp をインストールして認証する
 
 ```bash
 # clasp をインストール
@@ -128,7 +140,7 @@ cat ~/.clasprc.json
 
 ---
 
-### Step 6 — GitHub Secrets を登録する
+### Step 7 — GitHub Secrets を登録する
 
 1. **このリポジトリの Settings** にアクセス
    - https://github.com/peace098beat/mailjap/settings/secrets/actions
@@ -143,7 +155,7 @@ cat ~/.clasprc.json
 
 ---
 
-### Step 7 — `.clasp.json` のスクリプト ID を確認する
+### Step 8 — `.clasp.json` のスクリプト ID を確認する
 
 [mailjap/.clasp.json](mailjap/.clasp.json) の `scriptId` が Step 3 で取得したものと一致していることを確認する。
 
@@ -156,7 +168,7 @@ cat ~/.clasprc.json
 
 ---
 
-### Step 8 — main ブランチに push して自動デプロイを確認する
+### Step 9 — main ブランチに push して自動デプロイを確認する
 
 ```bash
 git push origin main
@@ -169,7 +181,7 @@ GitHub Actions のログを確認する：
 
 ---
 
-### Step 9 — GAS のトリガーを設定する（初回のみ）
+### Step 10 — GAS のトリガーを設定する（初回のみ）
 
 1. **Google Apps Script** のプロジェクトを開く
    - https://script.google.com/home
