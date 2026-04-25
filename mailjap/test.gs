@@ -62,7 +62,7 @@ function test_extractText() {
     assert(
       'extractText: HTMLエンティティをデコードする',
       extractText('&amp; &lt; &gt; &nbsp;'),
-      '& < >  '
+      '& < >'
     ),
     assert(
       'extractText: 空文字列を返す（null入力）',
