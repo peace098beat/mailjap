@@ -138,8 +138,9 @@ mailjap/
 
    | プロパティ名 | 値 |
    |---|---|
-   | `GEMINI_API_KEY` | Step 1 で取得したキー |
+   | `FORWARD_TO` | 転送先のGmailアドレス（例：`you@gmail.com`） |
    | `SLACK_WEBHOOK` | Step 2 で取得した Webhook URL |
+   | `GEMINI_API_KEY` | Step 1 で取得したキー |
    | `OPENAI_API_KEY` | （任意）OpenAI のキー |
    | `CLAUDE_API_KEY` | （任意）Anthropic のキー |
 

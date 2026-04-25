@@ -2,8 +2,8 @@ const MAILJAP_LABEL = 'mailjap/any';
 
 const CONFIG = {
   defaults: {
-    forwardTo: 'you@gmail.com',
-    slackWebhook: '',       // ScriptProperties.SLACK_WEBHOOK で上書き推奨
+    forwardTo: getProp('FORWARD_TO'),
+    slackWebhook: getProp('SLACK_WEBHOOK'),
     slackChannel: '#newsletter',
     translate: true,
     notify: ['slack'],
