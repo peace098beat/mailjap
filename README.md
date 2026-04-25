@@ -227,3 +227,99 @@ GitHub Actions のログを確認する：
 ```
 
 その後、Gmail でラベル `mailjap/javascript-weekly` とフィルタを作成し、`git push` するだけです。
+
+---
+
+## テスト手順
+
+### テストメールを送る
+
+ローカルのメーラー（Mail.app / Thunderbird など）から **自分の Gmail アドレス宛** に以下のメールを送信してください。
+
+---
+
+**件名：**
+```
+Python Weekly #999 - Test Issue
+```
+
+**本文：**
+```
+Python Weekly | Issue #999 | April 25, 2026
+
+Hello Pythonistas,
+
+Here are this week's highlights:
+
+─────────────────────────────────────
+ARTICLES & TUTORIALS
+─────────────────────────────────────
+
+* Understanding Python's Memory Management
+  Python uses reference counting combined with a cyclic garbage collector.
+  This article explains how objects are allocated and freed in CPython.
+  https://example.com/python-memory
+
+* Getting Started with FastAPI
+  FastAPI is a modern, fast web framework for building APIs with Python 3.8+.
+  It features automatic OpenAPI documentation and type hint based validation.
+  https://example.com/fastapi-intro
+
+* Top 10 Python Libraries in 2026
+  From data science to web scraping, here are the most useful libraries
+  every Python developer should know about this year.
+  https://example.com/top-libraries
+
+─────────────────────────────────────
+NEWS & RELEASES
+─────────────────────────────────────
+
+* Python 3.14 Beta Released
+  The latest beta includes improved error messages and a new JIT compiler.
+  https://example.com/python-314
+
+─────────────────────────────────────
+
+Unsubscribe: https://example.com/unsubscribe
+© 2026 Python Weekly
+```
+
+---
+
+### Gmail でラベルを手動付与する
+
+1. **Gmail** を開く
+   - https://mail.google.com
+
+2. 受信した上記のテストメールを開く
+
+3. メール上部の **「ラベル」アイコン（タグマーク）** をクリック
+
+4. `mailjap/python-weekly` を選択して適用する
+
+   > フィルタ未設定の場合は手動でラベルを付与することでテストできます。
+
+---
+
+### GAS で手動実行する
+
+1. **Google Apps Script** のプロジェクトを開く
+   - https://script.google.com/home
+
+2. 関数のプルダウンで **`run`** を選択
+
+3. **「実行」** ボタンをクリック
+
+4. **「実行数」** または **ログ（`表示` → `ログ`）** で結果を確認する
+
+   正常に動作した場合、以下のようなログが出力されます：
+   ```
+   [mailjap] 2026-04-25 12:00:00 処理開始: Python Weekly
+   [mailjap] 2026-04-25 12:00:00 Python Weekly: 1 件取得
+   [mailjap] 2026-04-25 12:00:01 翻訳試行: Gemini
+   [mailjap] 2026-04-25 12:00:03 翻訳成功: Gemini
+   [mailjap] 2026-04-25 12:00:03 Slack送信完了: #newsletter
+   [mailjap] 2026-04-25 12:00:03 完了: Python Weekly #999 - Test Issue
+   ```
+
+5. Gmail で `mailjap/done` ラベルがメールに付与されていれば成功です。
