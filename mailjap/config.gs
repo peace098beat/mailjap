@@ -6,6 +6,7 @@ const CONFIG = {
     slackWebhook: '',       // ScriptProperties.SLACK_WEBHOOK で上書き推奨
     slackChannel: '#newsletter',
     translate: true,
+    notify: ['slack'],
   },
 
   sources: [

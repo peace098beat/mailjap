@@ -1,7 +1,7 @@
 // label:mailjap/any -label:mailjap/done で未処理メールを一括取得
 function getUnprocessedMails() {
-  getOrCreateLabel('mailjap/any');
-  const query = 'label:mailjap/any -label:mailjap/done';
+  getOrCreateLabel(MAILJAP_LABEL);
+  const query = 'label:' + MAILJAP_LABEL + ' -label:mailjap/done';
   const threads = GmailApp.search(query, 0, 50);
   const mails = [];
 

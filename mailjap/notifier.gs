@@ -43,7 +43,7 @@ function sendSlack(src, result) {
     return;
   }
 
-  const channel = src.slackChannel || src.defaults && src.defaults.slackChannel;
+  const channel = src.slackChannel;
   const text = buildSlackText(result);
 
   const payload = { text: text };

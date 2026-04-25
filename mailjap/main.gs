@@ -30,7 +30,10 @@ function processMail(src, mail) {
     translated: translatedText,
   };
 
-  notify(src, result);
-  markDone(mail.thread);
+  try {
+    notify(src, result);
+  } finally {
+    markDone(mail.thread);
+  }
   log('完了: ' + mail.subject);
 }

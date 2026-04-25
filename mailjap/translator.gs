@@ -37,7 +37,7 @@ function translateWithGemini(text) {
   const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + apiKey;
   const payload = {
     contents: [{ parts: [{ text: TRANSLATE_PROMPT + text }] }],
-    generationConfig: { maxOutputTokens: 1024, temperature: 0.3 },
+    generationConfig: { maxOutputTokens: 4096, temperature: 0.3 },
   };
 
   const res = fetchJson(url, payload);
@@ -67,7 +67,7 @@ function translateWithClaude(text) {
   const url = 'https://api.anthropic.com/v1/messages';
   const payload = {
     model: 'claude-haiku-4-5-20251001',
-    max_tokens: 1024,
+    max_tokens: 4096,
     messages: [{ role: 'user', content: TRANSLATE_PROMPT + text }],
   };
 
